@@ -2,10 +2,10 @@
 
 ## Objetivos e entregáveis:
 - Executar uma [Análise Exploratória de Dados](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/notebooks/EDA.ipynb);
-- Confeccionar um [modelo de Machine Learning](https://github.com/NicolasFaleiros/hackathon-fccd/tree/main/models) para prever usuários robôs;
+- Implementar um [modelo de Machine Learning](https://github.com/NicolasFaleiros/hackathon-fccd/tree/main/models) para prever usuários robôs;
 - Demonstrar o impacto desses usuários no contexto do negócio;
 - 5 perguntas de negócios mais relevantes; e
-- Um Dashboard.
+- Um [Dashboard](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/Power%20BI_Leilão.pbit).
 - [Apresentação por Slides](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/Slides-Hackthon-Leilao.pdf) para a Banca Avaliadora
 
 O desafio imposto aos Cientistas de Dados foi de detectar se um lance é uma fraude (se foi feito por robô ou não), elaborando um modelo de Machine Learning. Após diversos testes com esta perspectiva, percebemos que um lance só pode ser fraudulento se o usuário que o originou também for fraudulento. Esta percepção permitiu um Feature Engineering melhor para aplicação e teste dos modelos.
@@ -41,7 +41,7 @@ As submissões serão avaliadas com a métrica Brier Score entre a probabilidade
 
 Cada linha do seu arquivo de submissão devera conter o id do participante e a probabilidade de que esse participante seja um robô. Além disso, seu arquivo de submissão deverá conter uma linha de cabeçalho. Ele deve seguir o formato abaixo:
 
-#### Arquivos
+#### [Arquivos](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/datasets-hackathon-01-fccd.zip)
 - **train.csv** - dados de treino
 - **lances.csv** - dados com informações sobre os lances
 - **test.csv** - dados de teste
