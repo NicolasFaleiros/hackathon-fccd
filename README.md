@@ -1,4 +1,3 @@
-
 # Hackathon FCCD 2024
 
 ## Objetivos e entregáveis:
@@ -7,6 +6,7 @@
 - Demonstrar o impacto desses usuários no contexto do negócio;
 - 5 perguntas de negócios mais relevantes; e
 - Um Dashboard.
+- Apresentação deverá ser feita por Slides (arquivo: "Slides-Hackathon Leilao.pdf")
 
 O desafio imposto aos Cientistas de Dados foi de detectar se um lance é uma fraude (se foi feito por robô ou não), elaborando um modelo de Machine Learning. Após diversos testes com esta perspectiva, percebemos que um lance só pode ser fraudulento se o usuário que o originou também for fraudulento. Esta percepção permitiu um Feature Engineering melhor para aplicação e teste dos modelos.
 
@@ -21,6 +21,57 @@ O desafio imposto aos Analistas de Dados foi de realizar uma análise explorató
 - Tunagem de Hiperparâmetros
 - Recomendações e Ganhos
 
+## Extrato do Hackathon na competição Kaggle (privado)
+
+"Sejam bem-vindos(as) ao primeiro Hackathon da FCCD!
+
+Imagine um mercado online, um palco digital onde diversos leilões se desenrolam a cada segundo. Neste ambiente, participantes do mundo inteiro lançam seus lances em busca de objetos desejados, desde joias até equipamentos tecnológicos. No entanto, nem todos os jogadores neste campo são humanos; alguns são robôs programados para manipular os resultados dos leilões.
+
+Seu desafio é se aprofundar nesses dados, explorar as camadas de atividade nos leilões e conseguir construir um modelo que saiba muito bem diferenciar humanos de robôs.
+
+Os competidores devem analisar dados de leilões online para identificar padrões e diferenciar entre humanos e robôs.
+
+Há dois datasets nessa competição. Um contém as informações dos participantes e outro contém milhões de lances nos leilões.
+
+**Avaliação dos Resultados**
+
+As submissões serão avaliadas com a métrica Brier Score entre a probabilidade predita e o target.
+
+**Submission File**
+
+Cada linha do seu arquivo de submissão devera conter o id do participante e a probabilidade de que esse participante seja um robô. Além disso, seu arquivo de submissão deverá conter uma linha de cabeçalho. Ele deve seguir o formato abaixo:
+
+#### Arquivos
+- **train.csv** - dados de treino
+- **lances.csv** - dados com informações sobre os lances
+- **test.csv** - dados de teste
+- **sample_submission.csv** - uma amostra do arquivo de submissão no formato correto
+
+São no total 4 Arquivos ".csv" que pesam 974.36 MB (260.34 MB compactados)
+
+#### Colunas
+Para os dados de **treino.csv**:
+- **id_participante** - Identificador único do participante
+- **conta_pagamento** - Conta de pagamento associada ao participante (com o valor ocultado)
+- **endereco** - Endereço postal do participante
+- **resultado** - A variável alvo que identifica se o participante é um robô ou um humano. (Robô = 1 e Humano = 0).
+
+Temos dois tipos de participantes:
+
+- **Robôs Confirmados**: Participantes com provas claras de atividades fraudulentas, resultando em banimento da plataforma. São rotulados como robôs no conjunto de dados (resultado = 1).
+- **Robôs Suspeitos**: Participantes com atividades atípicas ou estatísticas que superam a média, mas sem provas definitivas de fraude. A classificação deles como robôs é incerta.
+
+Para os dados de lances.csv:
+
+- **id_lance** - Identificador único do lance
+- **id_participante** - Identificador único do participante
+- **leilao** - Identificador único do leilão
+- **mercadoria** - A categoria da mercadoria leiloada
+- **dispositivo** - O dispositivo utilizado pelo visitante
+- **tempo** - O tempo que o lance foi feito
+- **pais** - O país que o IP pertence
+- **ip** - O IP do participante
+- **url** - A URL de onde o participante foi referido"
 
 ## Entendimento do Contexto de Negócio
 
