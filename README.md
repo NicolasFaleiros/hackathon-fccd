@@ -1,12 +1,12 @@
 # Hackathon FCCD 2024
 
 ## Objetivos e entregáveis:
-- Executar uma Análise Exploratória de Dados;
-- Confeccionar um modelo de Machine Learning para prever usuários robôs;
+- Executar uma [Análise Exploratória de Dados](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/notebooks/EDA.ipynb);
+- Confeccionar um [modelo de Machine Learning](https://github.com/NicolasFaleiros/hackathon-fccd/tree/main/models) para prever usuários robôs;
 - Demonstrar o impacto desses usuários no contexto do negócio;
 - 5 perguntas de negócios mais relevantes; e
 - Um Dashboard.
-- Apresentação deverá ser feita por Slides (arquivo: "Slides-Hackathon Leilao.pdf")
+- [Apresentação por Slides](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/Slides-Hackthon-Leilao.pdf) para a Banca Avaliadora
 
 O desafio imposto aos Cientistas de Dados foi de detectar se um lance é uma fraude (se foi feito por robô ou não), elaborando um modelo de Machine Learning. Após diversos testes com esta perspectiva, percebemos que um lance só pode ser fraudulento se o usuário que o originou também for fraudulento. Esta percepção permitiu um Feature Engineering melhor para aplicação e teste dos modelos.
 
@@ -150,6 +150,7 @@ Investigando os dispositivos com 100% de lances oriundos de robôs na base lance
     - Cerca de 13% dos lances foram realizados por usuários detectados como robô. Por outro lado, cerca de 5% dos usuários conhecidos foram diagnosticados como robô.
 
 ## Modelo de Machine Learning
+#### [Explicação concisa](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/models/README.md)
 
 Após executar a EDA e reuniões em conjunto com os Analistas de Dados, pudemos afirmar que existiam informações faltantes de países, dados ausentes de usuários em treinos e teste. Tratava-se de usuários que não existiam nas bases lances, treino ou teste (e vice-versa). Os valores ausentes que pudessem ser preenchidos com a média, foram preenchidos.
 
@@ -167,7 +168,7 @@ Após diversos testes com variações nos modelos:
     - Desbalanceando classes com SMOTE, ADASYN e RUS
     - Hiperparâmetros tunados com Optuna
 - **Gradient Boosting Classifier**
-    - Hiperparâmetros tunados com Optuna
+    - [Hiperparâmetros tunados com Optuna](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/models/arquivos_modelagem_hipertunagem/hipertunagem_parametros/Hipertunagem%20com%20Optuna-%20GradientBoostClassifier.py)
 
 Optamos pelo “GradientBoostingClassifier” por se tratar de um problema de classificação, o desempenho dele neste tipo de situação tende a ser superior criando um modelo de conjunto de árvores de decisão que são treinadas sequencialmente corrigindo os erros do modelo anterior. Se bem calibrado, resulta em modelos mais robustos e com melhor capacidade de generalização.
 
@@ -256,7 +257,7 @@ def preparar_dados(X, y, k):
 
 ## Tunagem de Hiperparâmetros
 
-Os parâmetros foram otimizados pela biblioteca por optuna utilizando esse range:
+Os parâmetros foram otimizados pela biblioteca por [Optuna](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/models/arquivos_modelagem_hipertunagem/hipertunagem_parametros/Hipertunagem%20com%20Optuna-%20GradientBoostClassifier.py) utilizando esse range:
 
 ```bash
 import optuna
@@ -274,7 +275,7 @@ def objective(trial):
     }
 ```
 
-Utilizamos a biblioteca Optuna para encontrar os melhores hiperparâmetros automaticamente a partir do modelo Gradient Boosting. Métrica de avaliação utilizada: Brier Score, em que se a probabilidade do usuário ser robô ultrapassar 0.5, é classificado como tal, abaixo disso é classificado como humano.
+Utilizamos a biblioteca Optuna para encontrar os [melhores hiperparâmetros](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/models/melhores_parametros_gb.json) automaticamente a partir do modelo Gradient Boosting. Métrica de avaliação utilizada: Brier Score, em que se a probabilidade do usuário ser robô ultrapassar 0.5, é classificado como tal, abaixo disso é classificado como humano.
 
 | Parâmetro   | Valor      |
 | :---------- | :--------- |
@@ -293,7 +294,15 @@ Não foi utilizada nenhuma técnica específica de balanceamento, dado que o alg
 ## Recomendações e Ganhos
 O desenvolvimento acelerado de algoritmos de inteligência tem possibilitado uma revolução nos modelos preditivos de fraude, garantindo que ações possam ser implementadas visando atenuar os riscos e identificando usuários fraudadores. Aqui descrevemos ações com uso de IA que podem ser implementadas visando ganhos e redução de riscos.
 Recomendações:
-- Padronização da informação dos usuários;
+- Padronização da informação dos usuários (países por exemplo) no banco de dados;
 - Implementar e monitorar o modelo em ambiente de produção, com atenção na escalabilidade e ajustando hiperparâmetros se necessário;
-- Ajustar o modelo para tomar ações de interesse da empresa (notificar um time da empresa sobre os possíveis usuários fraudulentos ou simplesmente banir o usuário da plataforma);
- 
+- Ajustar o modelo para tomar ações de interesse da empresa (notificar um time da empresa sobre os possíveis usuários fraudulentos ou simplesmente banir o usuário da plataforma); e
+- Escolha de outra métrica de avaliação sem ser Brier Score para evitar grandes prejúizos com falsos posítivos (humanos identificados como robôs) e falsos negativos (robôs identificados como humanos).
+
+
+## **Autores:**
+- **[André Feitosa](https://github.com/andrefeitosa9)**
+- **[Nicolas Faleiros](https://github.com/NicolasFaleiros)**
+- **[Guilherme Medeiros](https://github.com/andrefeitosa9)**
+- **[Guilherme Bibiano](https://github.com/Menotso)**
+- **[Pedro Henrique Fernandes](https://github.com/pedrohmjf)**
