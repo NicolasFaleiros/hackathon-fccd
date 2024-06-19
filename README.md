@@ -5,8 +5,7 @@
 - Implementar um [modelo de Machine Learning](https://github.com/NicolasFaleiros/hackathon-fccd/tree/main/models) para prever usuários robôs;
 - Demonstrar o impacto desses usuários no contexto do negócio;
 - 5 perguntas de negócios mais relevantes; e
-- Um [Dashboard](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/Power%20BI_Leilão.pbit).
-- [Apresentação por Slides](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/Slides-Hackthon-Leilao.pdf) para a Banca Avaliadora
+- [Apresentação por Slides](https://github.com/NicolasFaleiros/hackathon-fccd/blob/main/Slides-Hackthon-Leilao.pdf) para a Banca Avaliadora.
 
 O desafio imposto aos Cientistas de Dados foi de detectar se um lance é uma fraude (se foi feito por robô ou não), elaborando um modelo de Machine Learning. Após diversos testes com esta perspectiva, percebemos que um lance só pode ser fraudulento se o usuário que o originou também for fraudulento. Esta percepção permitiu um Feature Engineering melhor para aplicação e teste dos modelos.
 
